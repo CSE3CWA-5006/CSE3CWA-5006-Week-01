@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clean HTML teaching page with top tabs, live demos, and editable HTML examples." />
+  <title>HTML Teaching Demo</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="hero card">
+      <p class="eyebrow">HTML teaching page</p>
+      <h1>HTML Demo Hub</h1>
+      <p class="lead">Clean top-tab layout, live browser results, and editable HTML examples. This page focuses on HTML only. Each section shows the result first. Click <strong>Code</strong> to view and edit the HTML, then click <strong>Update</strong> to refresh that demo.</p>
+      <a class="css-button" href="./css/index.html">
+      Open CSS Demo
+      </a>
+	</div>
+
+    <nav class="top-tabs" aria-label="HTML demo sections">
+      <a href="#text">Text</a>
+      <a href="#links-media">Links &amp; Media</a>
+      <a href="#lists-tables">Lists &amp; Tables</a>
+      <a href="#forms">Forms</a>
+      <a href="#layout">Layout</a>
+      <a href="#embed">Embed</a>
+      <a href="#more">More</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page-wrap">
+    <section id="text" class="section-block">
+      <div class="section-heading">
+        <p class="label">Text</p>
+        <h2>Headings, paragraphs, inline text, quote, code, pre</h2>
+      </div>
+
+      <article class="demo-card card">
+        <div class="demo-head">
+          <div>
+            <p class="mini-label">Basic text</p>
+            <h3>Common text elements</h3>
+          </div>
+          <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+        </div>
+        <div class="preview demo-scope" data-preview>
+          <h1>h1 heading</h1>
+          <h2>h2 heading</h2>
+          <h3>h3 heading</h3>
+          <h4>h4 heading</h4>
+          <h5>h5 heading</h5>
+          <h6>h6 heading</h6>
+          <p>paragraph with <strong>strong</strong>, <em>em</em>, <u>u</u>, <mark>mark</mark>, <small>small</small>, <sub>sub</sub>, <sup>sup</sup>, <abbr title="HyperText Markup Language">abbr</abbr>, <cite>cite</cite>, <q>q</q>, <code>code</code>, <kbd>kbd</kbd>, <samp>samp</samp>, <var>var</var>, <time datetime="2026-03-25">time</time>, <del>del</del>, and <ins>ins</ins>.</p>
+          <blockquote>blockquote</blockquote>
+          <pre>pre
+line 1
+line 2
+line 3</pre>
+          <hr />
+          <address>address</address>
+        </div>
+        <div class="editor-panel" hidden>
+          <label>HTML code</label>
+          <textarea class="code-editor" spellcheck="false"><h1>h1 heading</h1>
+<h2>h2 heading</h2>
+<h3>h3 heading</h3>
+<h4>h4 heading</h4>
+<h5>h5 heading</h5>
+<h6>h6 heading</h6>
+<p>paragraph with <strong>strong</strong>, <em>em</em>, <u>u</u>, <mark>mark</mark>, <small>small</small>, <sub>sub</sub>, <sup>sup</sup>, <abbr title="HyperText Markup Language">abbr</abbr>, <cite>cite</cite>, <q>q</q>, <code>code</code>, <kbd>kbd</kbd>, <samp>samp</samp>, <var>var</var>, <time datetime="2026-03-25">time</time>, <del>del</del>, and <ins>ins</ins>.</p>
+<blockquote>blockquote</blockquote>
+<pre>pre
+line 1
+line 2
+line 3</pre>
+<hr />
+<address>address</address></textarea>
+          <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="links-media" class="section-block">
+      <div class="section-heading">
+        <p class="label">Links &amp; Media</p>
+        <h2>Links, mailto, images, picture, audio, video</h2>
+      </div>
+
+      <div class="demo-grid two-up">
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Anchor and mail</p>
+              <h3>Links and email</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+          <div class="preview demo-scope" data-preview>
+            <p><a href="https://www.w3schools.com/" target="_blank" rel="noopener">hyperlink</a></p>
+            <p><a href="#forms">jump link</a></p>
+            <p><a href="mailto:teacher@example.com?subject=HTML%20Class&body=Hello%20from%20the%20HTML%20demo%20page.">email link opens Outlook or default mail app</a></p>
+            <p><a href="https://placehold.co/1200x700/png" target="_blank" rel="noopener">image URL hyperlink</a></p>
+          </div>
+          <div class="editor-panel" hidden>
+            <label>HTML code</label>
+            <textarea class="code-editor" spellcheck="false"><p><a href="https://www.w3schools.com/" target="_blank" rel="noopener">hyperlink</a></p>
+<p><a href="#forms">jump link</a></p>
+<p><a href="mailto:teacher@example.com?subject=HTML%20Class&body=Hello%20from%20the%20HTML%20demo%20page.">email link opens Outlook or default mail app</a></p>
+<p><a href="https://placehold.co/1200x700/png" target="_blank" rel="noopener">image URL hyperlink</a></p></textarea>
+            <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+          </div>
+        </article>
+
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Image family</p>
+              <h3>img, figure, figcaption, picture</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+          <div class="preview demo-scope" data-preview>
+            <figure>
+              <img src="https://placehold.co/900x360/eaf0ff/17336b?text=img" alt="img example" />
+              <figcaption>figure + img + figcaption</figcaption>
+            </figure>
+            <picture>
+              <source media="(min-width: 700px)" srcset="https://placehold.co/900x260/dde7ff/17336b?text=picture+large" />
+              <img src="https://placehold.co/600x220/f3f7ff/17336b?text=picture+fallback" alt="picture example" />
+            </picture>
+          </div>
+          <div class="editor-panel" hidden>
+            <label>HTML code</label>
+            <textarea class="code-editor" spellcheck="false"><figure>
+  <img src="https://placehold.co/900x360/eaf0ff/17336b?text=img" alt="img example" />
+  <figcaption>figure + img + figcaption</figcaption>
+</figure>
+<picture>
+  <source media="(min-width: 700px)" srcset="https://placehold.co/900x260/dde7ff/17336b?text=picture+large" />
+  <img src="https://placehold.co/600x220/f3f7ff/17336b?text=picture+fallback" alt="picture example" />
+</picture></textarea>
+            <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+          </div>
+        </article>
+      </div>
+
+      <article class="demo-card card">
+        <div class="demo-head">
+          <div>
+            <p class="mini-label">Media</p>
+            <h3>audio and video</h3>
+          </div>
+          <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+        </div>
+        <div class="preview demo-scope" data-preview>
+          <audio controls>
+            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
+          </audio>
+          <video controls width="640" poster="https://placehold.co/640x360/eaf0ff/17336b?text=video">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="editor-panel" hidden>
+          <label>HTML code</label>
+          <textarea class="code-editor" spellcheck="false"><audio controls>
+  <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
+</audio>
+<video controls width="640" poster="https://placehold.co/640x360/eaf0ff/17336b?text=video">
+  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+</video></textarea>
+          <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="lists-tables" class="section-block">
+      <div class="section-heading">
+        <p class="label">Lists &amp; Tables</p>
+        <h2>ul, ol, dl and common table structure</h2>
+      </div>
+
+      <div class="demo-grid two-up">
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Lists</p>
+              <h3>ul, ol, dl</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+          <div class="preview demo-scope" data-preview>
+            <div class="two-col-demo">
+              <div>
+                <h4>ul</h4>
+                <ul><li>li</li><li>li</li><li>li</li></ul>
+              </div>
+              <div>
+                <h4>ol</h4>
+                <ol><li>li</li><li>li</li><li>li</li></ol>
+              </div>
+            </div>
+            <dl>
+              <dt>dt</dt>
+              <dd>dd</dd>
+              <dt>dt</dt>
+              <dd>dd</dd>
+            </dl>
+          </div>
+          <div class="editor-panel" hidden>
+            <label>HTML code</label>
+            <textarea class="code-editor" spellcheck="false"><div class="two-col-demo">
+  <div>
+    <h4>ul</h4>
+    <ul><li>li</li><li>li</li><li>li</li></ul>
+  </div>
+  <div>
+    <h4>ol</h4>
+    <ol><li>li</li><li>li</li><li>li</li></ol>
+  </div>
+</div>
+<dl>
+  <dt>dt</dt>
+  <dd>dd</dd>
+  <dt>dt</dt>
+  <dd>dd</dd>
+</dl></textarea>
+            <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+          </div>
+        </article>
+
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Tables</p>
+              <h3>table, caption, colgroup, thead, tbody, tfoot</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+          <div class="preview demo-scope" data-preview>
+            <table>
+              <caption>caption</caption>
+              <colgroup>
+                <col class="col-a" />
+                <col class="col-b" />
+                <col class="col-c" />
+              </colgroup>
+              <thead>
+                <tr><th>th</th><th>th</th><th>th</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>td</td><td>td</td><td>td</td></tr>
+                <tr><td>td</td><td>td</td><td>td</td></tr>
+              </tbody>
+              <tfoot>
+                <tr><td colspan="3">tfoot</td></tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="editor-panel" hidden>
+            <label>HTML code</label>
+            <textarea class="code-editor" spellcheck="false"><table>
+  <caption>caption</caption>
+  <colgroup>
+    <col class="col-a" />
+    <col class="col-b" />
+    <col class="col-c" />
+  </colgroup>
+  <thead>
+    <tr><th>th</th><th>th</th><th>th</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>td</td><td>td</td><td>td</td></tr>
+    <tr><td>td</td><td>td</td><td>td</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3">tfoot</td></tr>
+  </tfoot>
+</table></textarea>
+            <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="forms" class="section-block">
+      <div class="section-heading">
+        <p class="label">Forms</p>
+        <h2>input, label, select, textarea, datalist, output, fieldset</h2>
+      </div>
+
+      <article class="demo-card card">
+        <div class="demo-head">
+          <div>
+            <p class="mini-label">Form elements</p>
+            <h3>Common form controls</h3>
+          </div>
+          <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+        </div>
+        <div class="preview demo-scope" data-preview>
+          <form class="demo-form" oninput="result.value=Number(range.value)+Number(number.value)">
+            <fieldset>
+              <legend>fieldset + legend</legend>
+
+              <label>text input
+                <input type="text" placeholder="input type=text" />
+              </label>
+
+              <label>email input
+                <input type="email" placeholder="name@example.com" />
+              </label>
+
+              <label>password input
+                <input type="password" placeholder="password" />
+              </label>
+
+              <label>date input
+                <input type="date" />
+              </label>
+
+              <label>select
+                <select>
+                  <option>option 1</option>
+                  <option>option 2</option>
+                </select>
+              </label>
+
+              <label>textarea
+                <textarea rows="4">textarea</textarea>
+              </label>
+
+              <label>data list
+                <input list="browser-list" placeholder="choose from datalist" />
+                <datalist id="browser-list">
+                  <option value="Chrome"></option>
+                  <option value="Edge"></option>
+                  <option value="Firefox"></option>
+                </datalist>
+              </label>
+
+              <div class="inline-row">
+                <label class="inline-control"><input type="checkbox" checked /> <span>checkbox</span></label>
+                <label class="inline-control"><input type="radio" name="demo-radio" checked /> <span>radio</span></label>
+              </div>
+
+              <label>range input
+                <input name="range" type="range" value="30" />
+              </label>
+
+              <label>number input
+                <input name="number" type="number" value="12" />
+              </label>
+
+              <label>output
+                <output name="result">42</output>
+              </label>
+
+              <div class="button-row">
+                <button type="submit">submit</button>
+                <button type="reset">reset</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="editor-panel" hidden>
+          <label>HTML code</label>
+          <textarea class="code-editor" spellcheck="false"><form class="demo-form" oninput="result.value=Number(range.value)+Number(number.value)">
+  <fieldset>
+    <legend>fieldset + legend</legend>
+
+    <label>text input
+      <input type="text" placeholder="input type=text" />
+    </label>
+
+    <label>email input
+      <input type="email" placeholder="name@example.com" />
+    </label>
+
+    <label>password input
+      <input type="password" placeholder="password" />
+    </label>
+
+    <label>date input
+      <input type="date" />
+    </label>
+
+    <label>select
+      <select>
+        <option>option 1</option>
+        <option>option 2</option>
+      </select>
+    </label>
+
+    <label>textarea
+      <textarea rows="4">textarea</textarea>
+    </label>
+
+    <label>data list
+      <input list="browser-list" placeholder="choose from datalist" />
+      <datalist id="browser-list">
+        <option value="Chrome"></option>
+        <option value="Edge"></option>
+        <option value="Firefox"></option>
+      </datalist>
+    </label>
+
+    <div class="inline-row">
+      <label class="inline-control"><input type="checkbox" checked /> <span>checkbox</span></label>
+      <label class="inline-control"><input type="radio" name="demo-radio" checked /> <span>radio</span></label>
+    </div>
+
+    <label>range input
+      <input name="range" type="range" value="30" />
+    </label>
+
+    <label>number input
+      <input name="number" type="number" value="12" />
+    </label>
+
+    <label>output
+      <output name="result">42</output>
+    </label>
+
+    <div class="button-row">
+      <button type="submit">submit</button>
+      <button type="reset">reset</button>
+    </div>
+  </fieldset>
+</form></textarea>
+          <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="layout" class="section-block">
+      <div class="section-heading">
+        <p class="label">Layout</p>
+        <h2>div, span, header, nav, section, article, aside, footer</h2>
+      </div>
+
+      <article class="demo-card card">
+        <div class="demo-head">
+          <div>
+            <p class="mini-label">Semantic layout</p>
+            <h3>Page structure elements</h3>
+          </div>
+          <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+        </div>
+        <div class="preview demo-scope" data-preview>
+          <div class="layout-demo">
+            <header>header</header>
+            <nav>nav</nav>
+            <main>
+              <section>section</section>
+              <article>article with <span class="badge">span</span></article>
+            </main>
+            <aside>aside</aside>
+            <footer>footer</footer>
+          </div>
+        </div>
+        <div class="editor-panel" hidden>
+          <label>HTML code</label>
+          <textarea class="code-editor" spellcheck="false"><div class="layout-demo">
+  <header>header</header>
+  <nav>nav</nav>
+  <main>
+    <section>section</section>
+    <article>article with <span class="badge">span</span></article>
+  </main>
+  <aside>aside</aside>
+  <footer>footer</footer>
+</div></textarea>
+          <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="embed" class="section-block">
+      <div class="section-heading">
+        <p class="label">Embed</p>
+        <h2>iframe, YouTube, srcdoc, svg, canvas</h2>
+      </div>
+
+      <div class="demo-grid two-up">
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Iframes</p>
+              <h3>iframe and YouTube embed</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+          <div class="preview demo-scope" data-preview>
+            <iframe class="frame-demo" title="iframe srcdoc demo" srcdoc="<body style='margin:0;display:grid;place-items:center;height:100vh;font-family:Arial,sans-serif;background:#eef4ff;color:#17336b;'><h2>iframe srcdoc</h2></body>"></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/R-1c2xGajXc?si=kKkxpCQykit8Hj7T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>         <p class="note">If YouTube is blocked by browser, network, or policy, the embed may not play when opened locally.</p>
+          </div>
+          <div class="editor-panel" hidden>
+            <label>HTML code</label>
+            <textarea class="code-editor" spellcheck="false"><iframe class="frame-demo" title="iframe srcdoc demo" srcdoc="<body style='margin:0;display:grid;place-items:center;height:100vh;font-family:Arial,sans-serif;background:#eef4ff;color:#17336b;'><h2>iframe srcdoc</h2></body>"></iframe>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/R-1c2xGajXc?si=kKkxpCQykit8Hj7T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p class="note">If YouTube is blocked by browser, network, or policy, the embed may not play when opened locally.</p></textarea>
+            <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+          </div>
+        </article>
+
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Drawing</p>
+              <h3>svg and canvas</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+          <div class="preview demo-scope" data-preview>
+            <svg viewBox="0 0 320 120" aria-label="svg demo">
+              <rect x="10" y="10" width="300" height="100" rx="24"></rect>
+              <circle cx="70" cy="60" r="24"></circle>
+              <text x="120" y="68">svg</text>
+            </svg>
+            <canvas id="demoCanvas" width="320" height="120">canvas</canvas>
+          </div>
+          <div class="editor-panel" hidden>
+            <label>HTML code</label>
+            <textarea class="code-editor" spellcheck="false"><svg viewBox="0 0 320 120" aria-label="svg demo">
+  <rect x="10" y="10" width="300" height="100" rx="24"></rect>
+  <circle cx="70" cy="60" r="24"></circle>
+  <text x="120" y="68">svg</text>
+</svg>
+<canvas id="demoCanvas" width="320" height="120">canvas</canvas></textarea>
+            <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="more" class="section-block">
+      <div class="section-heading">
+        <p class="label">More</p>
+        <h2>details, summary, dialog, progress, meter, template, object, embed</h2>
+      </div>
+
+      <div class="demo-grid two-up">
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Interactive</p>
+              <h3>details, summary, dialog, progress, meter</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+          <div class="preview demo-scope" data-preview>
+            <details>
+              <summary>summary</summary>
+              <p>details content</p>
+            </details>
+            <progress value="70" max="100">70%</progress>
+            <meter value="0.65">65%</meter>
+            <button type="button" onclick="document.getElementById('demoDialog').showModal()">open dialog</button>
+            <dialog id="demoDialog">
+              <p>dialog</p>
+              <form method="dialog"><button>close</button></form>
+            </dialog>
+          </div>
+          <div class="editor-panel" hidden>
+            <label>HTML code</label>
+            <textarea class="code-editor" spellcheck="false"><details>
+  <summary>summary</summary>
+  <p>details content</p>
+</details>
+<progress value="70" max="100">70%</progress>
+<meter value="0.65">65%</meter>
+<button type="button" onclick="document.getElementById('demoDialog').showModal()">open dialog</button>
+<dialog id="demoDialog">
+  <p>dialog</p>
+  <form method="dialog"><button>close</button></form>
+</dialog></textarea>
+            <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+          </div>
+        </article>
+
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Extra tags</p>
+              <h3>template, object, embed, noscript</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+          <div class="preview demo-scope" data-preview>
+            <object data="data:text/html,<h3 style='font-family:Arial,sans-serif;text-align:center;'>object</h3>" type="text/html" width="100%" height="90">object fallback</object>
+            <embed src="data:text/html,%3Ch3%20style%3D%27font-family%3AArial%2Csans-serif%3Btext-align%3Acenter%3B%27%3Eembed%3C%2Fh3%3E" type="text/html" width="100%" height="90" />
+            <template id="templateDemo"><p>template content</p></template>
+            <div id="templateTarget">template target</div>
+            <noscript>noscript</noscript>
+          </div>
+          <div class="editor-panel" hidden>
+            <label>HTML code</label>
+            <textarea class="code-editor" spellcheck="false"><object data="data:text/html,<h3 style='font-family:Arial,sans-serif;text-align:center;'>object</h3>" type="text/html" width="100%" height="90">object fallback</object>
+<embed src="data:text/html,%3Ch3%20style%3D%27font-family%3AArial%2Csans-serif%3Btext-align%3Acenter%3B%27%3Eembed%3C%2Fh3%3E" type="text/html" width="100%" height="90" />
+<template id="templateDemo"><p>template content</p></template>
+<div id="templateTarget">template target</div>
+<noscript>noscript</noscript></textarea>
+            <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>HTML only teaching page with top tabs, live examples, editable HTML code, YouTube embed, and mailto link.</p>
+  </footer>
+
+  <script>
+    function runCanvas(scope) {
+      const canvas = scope.querySelector('canvas');
+      if (!canvas || !canvas.getContext) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#dfe8ff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#2f63ff';
+      ctx.fillRect(18, 28, 74, 46);
+      ctx.beginPath();
+      ctx.arc(150, 60, 20, 0, Math.PI * 2);
+      ctx.fillStyle = '#17336b';
+      ctx.fill();
+      ctx.font = '16px Arial';
+      ctx.fillText('canvas', 210, 64);
+    }
+
+    function runTemplate(scope) {
+      const template = scope.querySelector('template');
+      const target = scope.querySelector('#templateTarget');
+      if (!template || !target) return;
+      target.innerHTML = 'template target';
+      target.appendChild(template.content.cloneNode(true));
+    }
+
+    function runEnhancements(scope) {
+      runCanvas(scope);
+      runTemplate(scope);
+    }
+
+    document.querySelectorAll('.demo-card').forEach((card) => {
+      const toggle = card.querySelector('.code-toggle');
+      const panel = card.querySelector('.editor-panel');
+      const textarea = card.querySelector('.code-editor');
+      const preview = card.querySelector('[data-preview]');
+      const update = card.querySelector('.update-btn');
+
+      runEnhancements(preview);
+
+      toggle.addEventListener('click', () => {
+        const isOpen = !panel.hidden;
+        panel.hidden = isOpen;
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      update.addEventListener('click', () => {
+        preview.innerHTML = textarea.value;
+        runEnhancements(preview);
+      });
+    });
+  </script>
+</body>
+</html>

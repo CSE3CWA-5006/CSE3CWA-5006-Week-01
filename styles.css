@@ -1,0 +1,478 @@
+/* ================================
+   HTML Teaching Demo Stylesheet
+   English comments are included
+   to help students understand CSS.
+   ================================ */
+
+/* CSS variables make color and spacing easy to reuse. */
+:root {
+  --bg: #eef3fb;
+  --panel: #ffffff;
+  --panel-soft: #f7faff;
+  --line: #d6ddec;
+  --text: #17233f;
+  --muted: #63708a;
+  --accent: #355dff;
+  --accent-soft: #e8eeff;
+  --radius: 22px;
+  --shadow: 0 16px 40px rgba(18, 32, 63, 0.08);
+  --max: 1120px;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* The universal selector sets a shared box model. */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scroll helps top tabs jump cleanly. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base page style. */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
+}
+
+/* Common media elements should scale inside cards. */
+img,
+picture,
+video,
+audio,
+iframe,
+svg,
+canvas,
+object,
+embed {
+  max-width: 100%;
+  display: block;
+}
+
+/* Accessible visible outline for keyboard users. */
+:focus-visible {
+  outline: 3px solid rgba(53, 93, 255, 0.26);
+  outline-offset: 3px;
+}
+
+/* Hidden skip link appears when focused. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 1000;
+  background: #0f172a;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+}
+
+/* Shared width wrapper. */
+.site-header,
+.page-wrap,
+.site-footer {
+  width: min(calc(100% - 2rem), var(--max));
+  margin-inline: auto;
+}
+
+/* Main top area spacing. */
+.site-header {
+  padding: 1.25rem 0 0.9rem;
+}
+
+/* Reusable white panel card. */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Hero card at top of page. */
+.hero {
+  padding: 1.35rem 1.5rem;
+}
+
+/* Small uppercase labels. */
+.eyebrow,
+.label,
+.mini-label {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.eyebrow,
+.label {
+  font-size: 0.78rem;
+}
+
+.mini-label {
+  font-size: 0.7rem;
+}
+
+/* Large main heading. */
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.05;
+}
+
+/* Introductory text. */
+.lead {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  max-width: 76ch;
+}
+
+/* Top tab navigation. */
+.top-tabs {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.top-tabs a,
+button,
+.code-toggle,
+.update-btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.78rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Simple hover feedback. */
+.top-tabs a:hover,
+button:hover,
+.code-toggle:hover,
+.update-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+/* Primary action button. */
+.update-btn {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Main content vertical spacing. */
+.page-wrap {
+  display: grid;
+  gap: 1.2rem;
+  padding-bottom: 2rem;
+}
+
+/* Each major HTML topic block. */
+.section-block {
+  scroll-margin-top: 1rem;
+}
+
+.section-heading {
+  margin-bottom: 0.75rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+/* Grid layouts for cards. */
+.demo-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Individual demo card padding. */
+.demo-card {
+  padding: 1rem;
+}
+
+/* Title row inside each card. */
+.demo-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.demo-head h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* Preview area for real browser result. */
+.preview {
+  border: 1px solid var(--line);
+  background: var(--panel-soft);
+  border-radius: 18px;
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* Add regular spacing between preview children. */
+.demo-scope > * + * {
+  margin-top: 1rem;
+}
+
+/* Code editor panel below preview. */
+.editor-panel {
+  margin-top: 0.9rem;
+}
+
+.editor-panel label {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  font-weight: 700;
+}
+
+/* Dark code editor style. */
+.code-editor {
+  width: 100%;
+  min-height: 240px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  background: #0f172a;
+  color: #e5eefc;
+  font: 14px/1.5 var(--mono);
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.8rem;
+}
+
+/* Standard link color. */
+a {
+  color: var(--accent);
+}
+
+/* Inline badge for span demo. */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Two-column helper in list examples. */
+.two-col-demo {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Table styling for clarity. */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+caption {
+  caption-side: top;
+  padding-bottom: 0.65rem;
+  font-weight: 700;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 0.7rem;
+  text-align: left;
+}
+
+.col-a,
+.col-c {
+  background: #f7faff;
+}
+
+/* Form layout uses a tidy grid. */
+.demo-form fieldset {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.demo-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea,
+output {
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.72rem 0.8rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin: 0;
+}
+
+input[type="range"] {
+  padding: 0;
+}
+
+/* Keep checkbox/radio and text on the same line. */
+.inline-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.inline-control {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+}
+
+.inline-control span {
+  line-height: 1;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+/* Visual semantic layout demo. */
+.layout-demo {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: 1fr 280px;
+}
+
+.layout-demo > * {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 0.9rem;
+  font-weight: 700;
+}
+
+.layout-demo header,
+.layout-demo nav,
+.layout-demo footer,
+.layout-demo main {
+  grid-column: 1 / -1;
+}
+
+.layout-demo main {
+  display: grid;
+  gap: 0.7rem;
+}
+
+/* Frame sizes. */
+.frame-demo,
+.youtube-frame {
+  width: 100%;
+  min-height: 240px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+/* SVG demo colors. */
+svg {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 18px;
+  background: #dfe8ff;
+}
+
+svg rect,
+svg circle {
+  fill: #355dff;
+}
+
+svg text {
+  fill: #17336b;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+/* Canvas box. */
+canvas,
+object,
+embed {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+/* Note text for video restrictions. */
+.note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Footer spacing. */
+.site-footer {
+  padding: 0 0 2rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Responsive adjustments for smaller screens. */
+@media (max-width: 860px) {
+  .two-up,
+  .two-col-demo,
+  .layout-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .layout-demo header,
+  .layout-demo nav,
+  .layout-demo footer,
+  .layout-demo main {
+    grid-column: auto;
+  }
+}
