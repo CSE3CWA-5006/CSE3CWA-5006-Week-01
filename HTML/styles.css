@@ -1,789 +1,478 @@
-/* =========================================================
-   CSS Teaching Demo Stylesheet
-   This file is loaded automatically by index.html.
-   The comments explain what each CSS part is used for.
-   ========================================================= */
+/* ================================
+   HTML Teaching Demo Stylesheet
+   English comments are included
+   to help students understand CSS.
+   ================================ */
 
-/* ========== 1) CSS VARIABLES ========== */
-/* Variables make colors and spacing easier to reuse. */
+/* CSS variables make color and spacing easy to reuse. */
 :root {
-  --bg: #f3f6fb;
+  --bg: #eef3fb;
   --panel: #ffffff;
-  --panel-soft: #f8faff;
-  --text: #12203a;
-  --muted: #5f6f8d;
-  --line: #d9e3f2;
-  --accent: #4567ff;
-  --accent-soft: #e9eeff;
-  --success: #0f9d58;
-  --warning: #f4b400;
-  --danger: #d93025;
-  --radius: 20px;
-  --shadow: 0 10px 30px rgba(26, 47, 92, 0.08);
-  --max: 1520px;
+  --panel-soft: #f7faff;
+  --line: #d6ddec;
+  --text: #17233f;
+  --muted: #63708a;
+  --accent: #355dff;
+  --accent-soft: #e8eeff;
+  --radius: 22px;
+  --shadow: 0 16px 40px rgba(18, 32, 63, 0.08);
+  --max: 1120px;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
-/* ========== 2) BASIC RESET ========== */
-/* A reset removes some browser default spacing differences. */
+/* The universal selector sets a shared box model. */
 * {
   box-sizing: border-box;
 }
 
+/* Smooth scroll helps top tabs jump cleanly. */
 html {
   scroll-behavior: smooth;
 }
 
+/* Base page style. */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
+  line-height: 1.6;
   color: var(--text);
-  line-height: 1.65;
-  font-size: 19px;
+  background: linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
 }
 
+/* Common media elements should scale inside cards. */
 img,
+picture,
 video,
-iframe {
+audio,
+iframe,
+svg,
+canvas,
+object,
+embed {
   max-width: 100%;
   display: block;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
+/* Accessible visible outline for keyboard users. */
+:focus-visible {
+  outline: 3px solid rgba(53, 93, 255, 0.26);
+  outline-offset: 3px;
 }
 
-/* ========== 3) PAGE LAYOUT ========== */
-/* These rules control the main page structure. */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  backdrop-filter: blur(10px);
-  background: rgba(243, 246, 251, 0.9);
-  border-bottom: 1px solid rgba(217, 227, 242, 0.85);
+/* Hidden skip link appears when focused. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
 }
 
-.header-inner,
-.main-wrap,
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 1000;
+  background: #0f172a;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+}
+
+/* Shared width wrapper. */
+.site-header,
+.page-wrap,
 .site-footer {
-  width: min(var(--max), calc(100% - 56px));
-  margin: 0 auto;
+  width: min(calc(100% - 2rem), var(--max));
+  margin-inline: auto;
 }
 
-.header-inner {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0;
+/* Main top area spacing. */
+.site-header {
+  padding: 1.25rem 0 0.9rem;
 }
 
-.brand h1 {
-  margin: 0;
-  font-size: 1.7rem;
-  letter-spacing: 0.03em;
-}
-
-.brand p {
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 1.02rem;
-}
-
-.top-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-end;
-}
-
-.top-tabs a,
-.ghost-btn,
-.primary-btn,
-.secondary-btn,
-.mini-btn {
-  border: 1px solid var(--line);
-  background: var(--panel);
-  color: var(--text);
-  text-decoration: none;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-}
-
-.top-tabs a {
-  padding: 12px 20px;
-  font-weight: 700;
-}
-
-.top-tabs a:hover,
-.ghost-btn:hover,
-.primary-btn:hover,
-.secondary-btn:hover,
-.mini-btn:hover {
-  transform: translateY(-1px);
-  border-color: var(--accent);
-}
-
-.main-wrap {
-  padding: 34px 0 52px;
-}
-
-.hero,
-.demo-card,
-.editor-panel,
-.note-card {
+/* Reusable white panel card. */
+.card {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
+/* Hero card at top of page. */
 .hero {
-  padding: 42px;
-  margin-bottom: 22px;
+  padding: 1.35rem 1.5rem;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 22px;
-  align-items: center;
-}
-
-.hero-tag,
-.section-tag,
-.demo-tag {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
+/* Small uppercase labels. */
+.eyebrow,
+.label,
+.mini-label {
+  margin: 0 0 0.35rem;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  color: var(--accent);
 }
 
-.hero h2 {
-  margin: 12px 0 10px;
-  font-size: clamp(2rem, 5vw, 3.6rem);
+.eyebrow,
+.label {
+  font-size: 0.78rem;
+}
+
+.mini-label {
+  font-size: 0.7rem;
+}
+
+/* Large main heading. */
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4rem);
   line-height: 1.05;
 }
 
-.hero p {
+/* Introductory text. */
+.lead {
+  margin: 0.8rem 0 0;
   color: var(--muted);
-  max-width: 68ch;
+  max-width: 76ch;
 }
 
-.hero-actions {
+/* Top tab navigation. */
+.top-tabs {
+  margin-top: 1rem;
   display: flex;
-  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 18px;
+  gap: 0.7rem;
+  justify-content: center;
 }
 
-.hero-preview {
-  padding: 20px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #eef3ff, #fdfdff);
+.top-tabs a,
+button,
+.code-toggle,
+.update-btn {
+  appearance: none;
   border: 1px solid var(--line);
-}
-
-.hero-demo-box {
-  padding: 18px;
-  border-radius: 18px;
-  border: 2px dashed var(--accent);
-  background: white;
-}
-
-.hero-demo-box h3 {
-  margin-top: 0;
-}
-
-.section-block {
-  margin: 24px 0 28px;
-}
-
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: end;
-  margin-bottom: 16px;
-}
-
-.section-head h3 {
-  margin: 8px 0 4px;
-  font-size: 2rem;
-}
-
-.section-head p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.grid-two,
-.grid-three {
-  display: grid;
-  gap: 20px;
-}
-
-.grid-two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.grid-three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.demo-card {
-  padding: 22px;
-}
-
-.demo-card header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.demo-card h4 {
-  margin: 0;
-  font-size: 1.22rem;
-}
-
-.demo-card p {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 0.94rem;
-}
-
-.preview-box {
-  background: var(--panel-soft);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 22px;
-  min-height: 150px;
-  overflow: hidden;
-}
-
-.editor-panel {
-  margin-top: 12px;
-  padding: 14px;
-  display: none;
-}
-
-.editor-panel.open {
-  display: block;
-}
-
-.editor-panel textarea,
-.global-editor textarea {
-  width: 100%;
-  min-height: 190px;
-  resize: vertical;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: #08142c;
-  color: #e8f0ff;
-  padding: 14px;
-  font-family: Consolas, Monaco, monospace;
-  font-size: 0.94rem;
-}
-
-.editor-actions,
-.global-actions,
-.note-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-
-.primary-btn,
-.secondary-btn,
-.ghost-btn,
-.mini-btn {
-  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.78rem 1rem;
+  font: inherit;
   font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
-.primary-btn {
+/* Simple hover feedback. */
+.top-tabs a:hover,
+button:hover,
+.code-toggle:hover,
+.update-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+/* Primary action button. */
+.update-btn {
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
 }
 
-.secondary-btn {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-color: transparent;
+/* Main content vertical spacing. */
+.page-wrap {
+  display: grid;
+  gap: 1.2rem;
+  padding-bottom: 2rem;
 }
 
-.ghost-btn {
-  background: transparent;
+/* Each major HTML topic block. */
+.section-block {
+  scroll-margin-top: 1rem;
 }
 
-.mini-btn {
-  padding: 8px 12px;
-  font-size: 0.85rem;
+.section-heading {
+  margin-bottom: 0.75rem;
 }
 
-.help-text,
-.small-note {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.note-card,
-.global-editor {
-  padding: 18px;
-}
-
-.global-editor {
-  margin-bottom: 22px;
-}
-
-.site-footer {
-  padding: 0 0 40px;
-  color: var(--muted);
-  font-size: 1.02rem;
-}
-
-/* ========== 4) DEMO: TYPOGRAPHY ========== */
-/* Typography controls text size, weight, spacing, and style. */
-.typo-demo .sample-title {
-  margin: 0 0 8px;
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.typo-demo .sample-copy {
+.section-heading h2 {
   margin: 0;
-  color: #30415f;
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: clamp(1.4rem, 2vw, 2rem);
 }
 
-/* ========== 5) DEMO: COLORS & BACKGROUND ========== */
-/* These rules style backgrounds, gradients, and text colors. */
-.color-demo {
-  border-radius: 18px;
-  padding: 24px;
-  color: white;
-  background: linear-gradient(135deg, #4567ff, #8a5dff);
+/* Grid layouts for cards. */
+.demo-grid {
+  display: grid;
+  gap: 1rem;
 }
 
-.color-demo .chip-row {
+.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Individual demo card padding. */
+.demo-card {
+  padding: 1rem;
+}
+
+/* Title row inside each card. */
+.demo-head {
   display: flex;
-  gap: 10px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-
-.color-demo .chip {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.26);
-}
-
-/* ========== 6) DEMO: BOX MODEL ========== */
-/* Box model is content + padding + border + margin. */
-.box-demo .box {
-  margin: 16px auto;
-  padding: 24px;
-  width: min(100%, 300px);
-  border: 6px solid #4567ff;
-  background: #eef3ff;
-  text-align: center;
-  border-radius: 18px;
-}
-
-.box-demo .guide {
-  color: var(--muted);
-  text-align: center;
-}
-
-/* ========== 7) DEMO: DISPLAY & VISIBILITY ========== */
-/* Display changes layout behavior. Visibility can hide elements. */
-.display-demo .row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.display-demo .block,
-.display-demo .inline,
-.display-demo .inline-block,
-.display-demo .hidden-label {
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: white;
-}
-
-.display-demo .block {
-  display: block;
-  width: 100%;
-}
-
-.display-demo .inline {
-  display: inline;
-  background: #fff4d7;
-}
-
-.display-demo .inline-block {
-  display: inline-block;
-  background: #e8fff3;
-}
-
-.display-demo .hidden-label {
-  visibility: visible;
-  background: #f3edff;
-}
-
-/* ========== 8) DEMO: POSITION ========== */
-/* Position allows relative/absolute/fixed/sticky placement. */
-.position-demo {
-  position: relative;
-  min-height: 190px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, #f6f8ff, #edf2ff);
-}
-
-.position-demo .anchor {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  padding: 10px 12px;
-  background: white;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-}
-
-.position-demo .badge {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  background: var(--accent);
-  color: white;
-  border-radius: 999px;
-  padding: 8px 12px;
-}
-
-.position-demo .center-box {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  transform: translate(-50%, -50%);
-  padding: 18px 22px;
-  border-radius: 16px;
-  background: white;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-/* ========== 9) DEMO: FLEXBOX ========== */
-/* Flexbox aligns items in one dimension: row or column. */
-.flex-demo {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
 }
 
-.flex-demo .item {
-  flex: 1 1 120px;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  color: white;
-  font-weight: 800;
-  background: linear-gradient(135deg, #4567ff, #6b8cff);
+.demo-head h3 {
+  margin: 0;
+  font-size: 1.25rem;
 }
 
-/* ========== 10) DEMO: GRID ========== */
-/* CSS Grid is good for two-dimensional layouts. */
-.grid-demo {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.grid-demo .cell {
-  min-height: 78px;
-  display: grid;
-  place-items: center;
-  background: #eef3ff;
-  border: 1px solid #cfdcff;
-  border-radius: 18px;
-  font-weight: 800;
-}
-
-.grid-demo .cell.wide {
-  grid-column: span 2;
-}
-
-/* ========== 11) DEMO: BORDERS & SHADOWS ========== */
-/* Borders shape the edge; shadow adds visual depth. */
-.border-demo .card {
-  padding: 22px;
-  background: white;
-  border: 2px solid #d5def0;
-  border-left: 8px solid #4567ff;
-  border-radius: 22px;
-  box-shadow: 0 14px 30px rgba(69, 103, 255, 0.14);
-}
-
-/* ========== 12) DEMO: TRANSFORM & TRANSITION ========== */
-/* Transform moves/scales/rotates. Transition animates the change. */
-.motion-demo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 150px;
-}
-
-.motion-demo .tile {
-  padding: 28px 34px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #4567ff, #8a5dff);
-  color: white;
-  font-weight: 800;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.motion-demo .tile:hover {
-  transform: rotate(-3deg) scale(1.06);
-  box-shadow: 0 16px 28px rgba(69, 103, 255, 0.22);
-}
-
-/* ========== 13) DEMO: ANIMATION ========== */
-/* Keyframes create repeated animation steps. */
-@keyframes floatY {
-  0%,
-  100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.animation-demo .bubble {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #9fb4ff, #4567ff);
-  animation: floatY 2s ease-in-out infinite;
-  margin: 16px auto;
-}
-
-.animation-demo p {
-  text-align: center;
-  margin-bottom: 0;
-}
-
-/* ========== 14) DEMO: PSEUDO-CLASS & PSEUDO-ELEMENT ========== */
-/* Hover/focus are pseudo-classes. ::before/::after are pseudo-elements. */
-.pseudo-demo .link-btn {
-  display: inline-block;
-  padding: 12px 16px;
-  border-radius: 999px;
-  background: white;
+/* Preview area for real browser result. */
+.preview {
   border: 1px solid var(--line);
-  text-decoration: none;
-  color: var(--text);
+  background: var(--panel-soft);
+  border-radius: 18px;
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* Add regular spacing between preview children. */
+.demo-scope > * + * {
+  margin-top: 1rem;
+}
+
+/* Code editor panel below preview. */
+.editor-panel {
+  margin-top: 0.9rem;
+}
+
+.editor-panel label {
+  display: inline-block;
+  margin-bottom: 0.45rem;
   font-weight: 700;
 }
 
-.pseudo-demo .link-btn:hover {
-  background: var(--accent);
-  color: white;
+/* Dark code editor style. */
+.code-editor {
+  width: 100%;
+  min-height: 240px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  background: #0f172a;
+  color: #e5eefc;
+  font: 14px/1.5 var(--mono);
 }
 
-.pseudo-demo .label::before {
-  content: "◆ ";
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.8rem;
+}
+
+/* Standard link color. */
+a {
   color: var(--accent);
 }
 
-.pseudo-demo .label::after {
-  content: " CSS";
-  color: var(--muted);
+/* Inline badge for span demo. */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
 }
 
-/* ========== 15) DEMO: LISTS & TABLES ========== */
-/* Tables and lists can also be styled with spacing and zebra rows. */
-.data-demo table {
+/* Two-column helper in list examples. */
+.two-col-demo {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Table styling for clarity. */
+table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  overflow: hidden;
-  border-radius: 14px;
+  background: #fff;
 }
 
-.data-demo th,
-.data-demo td {
-  padding: 12px;
-  border-bottom: 1px solid #e6ecf7;
+caption {
+  caption-side: top;
+  padding-bottom: 0.65rem;
+  font-weight: 700;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 0.7rem;
   text-align: left;
 }
 
-.data-demo tbody tr:nth-child(even) {
-  background: #f8fbff;
+.col-a,
+.col-c {
+  background: #f7faff;
 }
 
-.data-demo ul {
-  margin: 0 0 14px;
-  padding-left: 20px;
-}
-
-/* ========== 16) DEMO: FORM CONTROLS ========== */
-/* Form styles improve clarity and spacing. */
-.form-demo .stack {
+/* Form layout uses a tidy grid. */
+.demo-form fieldset {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
   display: grid;
-  gap: 12px;
+  gap: 0.9rem;
 }
 
-.form-demo label {
+.demo-form label {
   display: grid;
-  gap: 6px;
+  gap: 0.35rem;
   font-weight: 700;
 }
 
-.form-demo input,
-.form-demo select,
-.form-demo textarea {
+input,
+select,
+textarea,
+output {
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 12px 14px;
-  background: white;
+  padding: 0.72rem 0.8rem;
 }
 
-.form-demo input:focus,
-.form-demo select:focus,
-.form-demo textarea:focus {
-  outline: 3px solid rgba(69, 103, 255, 0.15);
-  border-color: var(--accent);
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin: 0;
 }
 
-/* ========== 17) DEMO: FILTERS ========== */
-/* Filters can blur, grayscale, or change brightness. */
-.filter-demo {
+input[type="range"] {
+  padding: 0;
+}
+
+/* Keep checkbox/radio and text on the same line. */
+.inline-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.inline-control {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+}
+
+.inline-control span {
+  line-height: 1;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+/* Visual semantic layout demo. */
+.layout-demo {
   display: grid;
-  gap: 12px;
+  gap: 0.7rem;
+  grid-template-columns: 1fr 280px;
 }
 
-.filter-demo img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-.filter-demo .filtered {
-  filter: grayscale(100%) contrast(120%);
-}
-
-/* ========== 18) DEMO: OVERFLOW ========== */
-/* Overflow controls what happens when content is too large. */
-.overflow-demo .scroll-box {
-  max-height: 120px;
-  overflow: auto;
-  padding: 14px;
-  border-radius: 14px;
-  background: white;
+.layout-demo > * {
   border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 0.9rem;
+  font-weight: 700;
 }
 
-/* ========== 19) DEMO: MEDIA EMBED ========== */
-/* This makes embedded videos keep a 16:9 ratio. */
-.ratio-demo {
-  position: relative;
-  padding-top: 56.25%;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #dfe7fb;
+.layout-demo header,
+.layout-demo nav,
+.layout-demo footer,
+.layout-demo main {
+  grid-column: 1 / -1;
 }
 
-.ratio-demo iframe {
-  position: absolute;
-  inset: 0;
+.layout-demo main {
+  display: grid;
+  gap: 0.7rem;
+}
+
+/* Frame sizes. */
+.frame-demo,
+.youtube-frame {
   width: 100%;
-  height: 100%;
-  border: 0;
+  min-height: 240px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
 }
 
-/* ========== 20) DEMO: RESPONSIVE ========== */
-/* Media queries change layout at different screen sizes. */
-@media (max-width: 960px) {
-  .hero-grid,
-  .grid-two,
-  .grid-three {
+/* SVG demo colors. */
+svg {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 18px;
+  background: #dfe8ff;
+}
+
+svg rect,
+svg circle {
+  fill: #355dff;
+}
+
+svg text {
+  fill: #17336b;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+/* Canvas box. */
+canvas,
+object,
+embed {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+/* Note text for video restrictions. */
+.note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Footer spacing. */
+.site-footer {
+  padding: 0 0 2rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Responsive adjustments for smaller screens. */
+@media (max-width: 860px) {
+  .two-up,
+  .two-col-demo,
+  .layout-demo {
     grid-template-columns: 1fr;
   }
 
-  .section-head,
-  .header-inner {
-    align-items: start;
-    flex-direction: column;
+  .layout-demo header,
+  .layout-demo nav,
+  .layout-demo footer,
+  .layout-demo main {
+    grid-column: auto;
   }
-
-  .top-tabs {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 640px) {
-  .main-wrap,
-  .header-inner,
-  .site-footer {
-    width: min(var(--max), calc(100% - 20px));
-  }
-
-  .hero,
-  .demo-card,
-  .note-card,
-  .global-editor {
-    padding: 14px;
-  }
-
-  .hero h2 {
-    font-size: 1.9rem;
-  }
-}
-
-
-/* ========== 16) VIDEO FALLBACK LINK ========== */
-.video-help {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.98rem;
-}
-
-.video-actions {
-  margin-top: 12px;
-}
-
-.open-video-link {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.open-video-link:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
 }
