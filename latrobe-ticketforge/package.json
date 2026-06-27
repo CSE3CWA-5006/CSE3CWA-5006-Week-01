@@ -1,0 +1,26 @@
+{
+  "name": "latrobe-ticketforge",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "express": "latest",
+    "cors": "latest",
+    "concurrently": "latest"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=24.15"
+  }
+}
