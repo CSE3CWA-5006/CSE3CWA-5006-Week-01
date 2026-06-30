@@ -341,7 +341,7 @@ I have also provided an **Ubuntu 26.04 LTS AMD64 / Intel-AMD 64-bit Vmware file*
 You can download the provided VMware file here:
 
 ```text
-https://latrobeuni.sharepoint.com/:u:/t/O365-CSE5006CSE3CWA/IQDUcAWDTzwjRYdWnaiyXJ6IAbx1cuNqupdqYva5ZMRTlrQ?e=z2wh8i
+https://latrobeuni.sharepoint.com/:u:/t/O365-CSE5006CSE3CWA/IQDUcAWDTzwjRYdWnaiyXJ6IAbx1cuNqupdqYva5ZMRTlrQ?e=sszcec
 ```
 
 After downloading it, open **VMware Workstation Pro**, **VMware Workstation Player**, or **VMware Fusion**, create a new virtual machine, and select this ISO file.
