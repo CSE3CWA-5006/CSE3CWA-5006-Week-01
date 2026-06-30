@@ -330,18 +330,18 @@ If a newer Node.js version is required, your lecturer will provide separate inst
 
 ---
 
-# 6. Provided Ubuntu ISO File
+# 6. Provided Ubuntu Vmware File
 
-I have also provided an **Ubuntu 26.04 LTS AMD64 / Intel-AMD 64-bit ISO file** for students who use:
+I have also provided an **Ubuntu 26.04 LTS AMD64 / Intel-AMD 64-bit Vmware file** for students who use:
 
 * Windows laptops
 * Intel-based Mac computers
 * Intel/AMD desktop computers
 
-You can download the provided ISO file here:
+You can download the provided VMware file here:
 
 ```text
-https://latrobeuni.sharepoint.com/:f:/t/O365-CSE5006CSE3CWA/IgBgBsdV7RraSagkS5bMJq3gAW3p_zJ9tgNWBoogAiDHI8E?e=EanrSz
+https://latrobeuni.sharepoint.com/:u:/t/O365-CSE5006CSE3CWA/IQDUcAWDTzwjRYdWnaiyXJ6IAbx1cuNqupdqYva5ZMRTlrQ?e=z2wh8i
 ```
 
 After downloading it, open **VMware Workstation Pro**, **VMware Workstation Player**, or **VMware Fusion**, create a new virtual machine, and select this ISO file.
