@@ -41,7 +41,7 @@ If you cannot find VMware Workstation Player, please use **VMware Workstation Pr
 Download VMware Workstation Pro / VMware Workstation Player from:
 
 ```text
-https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion
+https://support.broadcom.com/c/portal/login?redirect=%2Fgroup%2Fecx%2Fproductdownloads%3Fsubfamily%3DVMware%2520Workstation%2520Pro%26freeDownloads%3Dtrue&refererPlid=36&p_l_id=33047
 ```
 
 If the page redirects you to Broadcom, sign in or create a Broadcom account, then download:
@@ -83,7 +83,7 @@ VMware Fusion
 Download VMware Fusion from:
 
 ```text
-https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion
+https://support.broadcom.com/c/portal/login?redirect=%2Fgroup%2Fecx%2Fproductdownloads%3Fsubfamily%3DVMware%2520Fusion%26freeDownloads%3Dtrue&refererPlid=36&p_l_id=33047
 ```
 
 If the page redirects you to Broadcom, sign in or create a Broadcom account, then download:
