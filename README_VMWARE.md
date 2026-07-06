@@ -9,7 +9,7 @@ Please follow the instructions below based on your computer type.
 Recommended Ubuntu version:
 
 ```text
-Ubuntu 26.04 LTS or the latest available LTS version
+Ubuntu 22.04 LTS （stable) LTS version
 ```
 
 Ubuntu Desktop can be downloaded from:
@@ -33,7 +33,7 @@ VMware Workstation Pro
 or
 
 ```text
-VMware Workstation Player
+VMware Workstation Player (recommend stable but not latest version)
 ```
 
 If you cannot find VMware Workstation Player, please use **VMware Workstation Pro**.
@@ -332,19 +332,19 @@ If a newer Node.js version is required, your lecturer will provide separate inst
 
 # 6. Provided Ubuntu Vmware File
 
-I have also provided an **Ubuntu 26.04 LTS AMD64 / Intel-AMD 64-bit Vmware file** for students who use:
+I have also provided an **Ubuntu 22.04 LTS AMD64 / Intel-AMD 64-bit Vmware file** for students who use:
 
 * Windows laptops
 * Intel-based Mac computers
 * Intel/AMD desktop computers
 
-You can download the provided VMware file here:
+You can download the provided Vmware workstation 17 software and VMware file here:
 
 ```text
-https://latrobeuni.sharepoint.com/:u:/t/O365-CSE5006CSE3CWA/IQDUcAWDTzwjRYdWnaiyXJ6IAbx1cuNqupdqYva5ZMRTlrQ?e=sszcec
+https://latrobeuni.sharepoint.com/:f:/t/O365-CSE5006CSE3CWA/IgDDCrmXulsTTLBy4u6F7rZbATeD38e1VtaEDoSD-T96oTw?e=fTsZBP
 ```
 
-After downloading it, open **VMware Workstation Pro**, **VMware Workstation Player**, or **VMware Fusion**, create a new virtual machine, and select this ISO file.
+After downloading it, open **VMware Workstation Pro**, **VMware Workstation Player 17**, or **VMware Fusion**, create a new virtual machine, and select this ISO file.
 
 Important:
 
