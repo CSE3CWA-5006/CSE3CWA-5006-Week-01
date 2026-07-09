@@ -156,6 +156,118 @@ SQLite database
 React ticket board
 ```
 
+
+## Postman and Vs Code Install 
+
+
+```bash
+#!/usr/bin/env bash
+
+set -e
+
+echo "===================================="
+echo " Installing Postman and VS Code"
+echo " Ubuntu 22.04 / 24.04"
+echo "===================================="
+
+echo ""
+echo "1. Updating system package list..."
+sudo apt update
+
+echo ""
+echo "2. Installing required packages..."
+sudo apt install -y \
+  wget \
+  curl \
+  gpg \
+  ca-certificates \
+  software-properties-common \
+  apt-transport-https
+
+echo ""
+echo "3. Installing Snap if not already installed..."
+if ! command -v snap >/dev/null 2>&1; then
+  sudo apt install -y snapd
+else
+  echo "Snap is already installed."
+fi
+
+echo ""
+echo "4. Installing Postman..."
+if snap list postman >/dev/null 2>&1; then
+  echo "Postman is already installed."
+else
+  sudo snap install postman
+fi
+
+echo ""
+echo "5. Installing Visual Studio Code..."
+
+sudo mkdir -p /etc/apt/keyrings
+
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc \
+  | gpg --dearmor \
+  | sudo tee /etc/apt/keyrings/packages.microsoft.gpg > /dev/null
+
+echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" \
+  | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+
+sudo apt update
+sudo apt install -y code
+
+echo ""
+echo "6. Checking installed versions..."
+echo "------------------------------------"
+
+if command -v postman >/dev/null 2>&1; then
+  echo "Postman installed."
+else
+  echo "Postman command not found, but it may still appear in the app menu."
+fi
+
+if command -v code >/dev/null 2>&1; then
+  echo "VS Code:"
+  code --version | head -n 1
+else
+  echo "VS Code was not found."
+fi
+
+echo ""
+echo "Optional development tools status:"
+echo "------------------------------------"
+
+if command -v git >/dev/null 2>&1; then
+  echo "Git: $(git --version)"
+else
+  echo "Git: not installed"
+fi
+
+if command -v node >/dev/null 2>&1; then
+  echo "Node: $(node -v)"
+else
+  echo "Node: not installed"
+fi
+
+if command -v npm >/dev/null 2>&1; then
+  echo "npm: $(npm -v)"
+else
+  echo "npm: not installed"
+fi
+
+if command -v gh >/dev/null 2>&1; then
+  echo "GitHub CLI: $(gh --version | head -n 1)"
+else
+  echo "GitHub CLI: not installed"
+fi
+
+echo ""
+echo "===================================="
+echo " Installation completed."
+echo " You can start VS Code with: code"
+echo " You can start Postman from the app menu."
+echo "===================================="
+```
+
 ## Licence and copyright
 
 La Trobe TicketForge  
