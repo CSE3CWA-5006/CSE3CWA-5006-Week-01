@@ -332,13 +332,13 @@ gh auth status
 Example:
 
 ```bash
-gh repo clone CSE3CWA-5006/CSE3CWA-5006-week-02
+gh repo clone https://github.com/CSE3CWA-5006/CSE3CWA-5006-Week-01
 ```
 
 Then enter the project folder:
 
 ```bash
-cd CSE3CWA-5006-week-02
+cd CSE3CWA-5006-week-01
 ```
 
 
