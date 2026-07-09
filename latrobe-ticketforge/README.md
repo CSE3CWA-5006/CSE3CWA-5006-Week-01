@@ -268,6 +268,80 @@ echo " You can start Postman from the app menu."
 echo "===================================="
 ```
 
+# Install GitHub CLI on Ubuntu
+
+This guide explains how to install **GitHub CLI (`gh`)** on Ubuntu and log in to a GitHub account.
+
+## 1. Install GitHub CLI
+
+Run the following commands in the terminal:
+
+```bash
+sudo apt update
+sudo apt install -y wget gpg ca-certificates
+
+sudo mkdir -p -m 755 /etc/apt/keyrings
+
+wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+| sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
+
+sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+| sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+sudo apt update
+sudo apt install -y gh
+```
+
+## 2. Check the Installation
+
+```bash
+gh --version
+```
+
+## 3. Log in to GitHub
+
+Run:
+
+```bash
+gh auth login
+```
+
+Recommended choices:
+
+```text
+GitHub.com
+HTTPS
+Yes
+Login with a web browser
+```
+
+GitHub CLI will show a one-time code.
+
+Copy the code, open the browser page, paste the code, and authorise GitHub CLI.
+
+## 4. Check Login Status
+
+```bash
+gh auth status
+```
+
+## 5. Clone a Repository Using GitHub CLI
+
+Example:
+
+```bash
+gh repo clone CSE3CWA-5006/CSE3CWA-5006-week-02
+```
+
+Then enter the project folder:
+
+```bash
+cd CSE3CWA-5006-week-02
+```
+
+
 ## Licence and copyright
 
 La Trobe TicketForge  
