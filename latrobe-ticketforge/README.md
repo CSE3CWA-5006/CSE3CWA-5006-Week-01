@@ -23,7 +23,6 @@ The interface is designed as a modern ticket board inspired by tools such as Tre
 | `src/style.css` | All the styling (colours, layout, cards) for the React app. |
 | `index.html` | The single HTML page that React mounts into. Vite uses it as the entry point. |
 | `package.json` | Lists the project's dependencies and the `npm` scripts (`dev`, `build`, `start`). |
-| `package-lock.json` | Records the exact dependency versions npm installed. Do not edit by hand. |
 | `dist/` | The built frontend (created by `npm run build`). The server serves these files in production. |
 | `ticketforge.db` | The SQLite database file. Created automatically the first time the server runs. |
 | `LICENSE` | The full AGPL-3.0 licence text. |
