@@ -6,6 +6,48 @@
   <meta name="description" content="Clean HTML teaching page with top tabs, live demos, and editable HTML examples." />
   <title>HTML Teaching Demo</title>
   <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    .editor-panel .code-editor {
+      display: block;
+      width: 100%;
+      min-height: 26rem;
+      max-height: 70vh;
+      overflow: auto;
+      resize: vertical;
+      box-sizing: border-box;
+      white-space: pre;
+      tab-size: 2;
+    }
+
+    #forms .demo-grid {
+      align-items: start;
+    }
+
+    #forms .demo-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    #forms fieldset {
+      min-width: 0;
+    }
+
+    #forms input,
+    #forms select,
+    #forms textarea,
+    #forms output {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    #forms output {
+      display: block;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid currentColor;
+      border-radius: 0.4rem;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -53,14 +95,14 @@
           <h4>h4 heading</h4>
           <h5>h5 heading</h5>
           <h6>h6 heading</h6>
-          <p>paragraph with <strong>strong</strong>, <em>em</em>, <u>u</u>, <mark>mark</mark>, <small>small</small>, <sub>sub</sub>, <sup>sup</sup>, <abbr title="HyperText Markup Language">abbr</abbr>, <cite>cite</cite>, <q>q</q>, <code>code</code>, <kbd>kbd</kbd>, <samp>samp</samp>, <var>var</var>, <time datetime="2026-03-25">time</time>, <del>del</del>, and <ins>ins</ins>.</p>
-          <blockquote>blockquote</blockquote>
+          <p>paragraph with <strong>strong</strong>, <em>em</em>, <u>u</u>, <mark>mark</mark>, <small>small</small>, <sub>sub</sub>, <sup>sup</sup>, <abbr title="HyperText Markup Language">HTML</abbr>, <cite>cite</cite>, <q>q</q>, <code>code</code>, <kbd>kbd</kbd>, <samp>samp</samp>, <var>var</var>, <time datetime="2026-03-25">25 March 2026</time>, <del>del</del>, and <ins>ins</ins>.</p>
+          <blockquote cite="https://developer.mozilla.org/">This is a block quotation.</blockquote>
           <pre>pre
 line 1
 line 2
 line 3</pre>
           <hr />
-          <address>address</address>
+          <address>Contact: <a href="mailto:teacher@example.com">teacher@example.com</a></address>
         </div>
         <div class="editor-panel" hidden>
           <label>HTML code</label>
@@ -70,14 +112,14 @@ line 3</pre>
 <h4>h4 heading</h4>
 <h5>h5 heading</h5>
 <h6>h6 heading</h6>
-<p>paragraph with <strong>strong</strong>, <em>em</em>, <u>u</u>, <mark>mark</mark>, <small>small</small>, <sub>sub</sub>, <sup>sup</sup>, <abbr title="HyperText Markup Language">abbr</abbr>, <cite>cite</cite>, <q>q</q>, <code>code</code>, <kbd>kbd</kbd>, <samp>samp</samp>, <var>var</var>, <time datetime="2026-03-25">time</time>, <del>del</del>, and <ins>ins</ins>.</p>
-<blockquote>blockquote</blockquote>
+<p>paragraph with <strong>strong</strong>, <em>em</em>, <u>u</u>, <mark>mark</mark>, <small>small</small>, <sub>sub</sub>, <sup>sup</sup>, <abbr title="HyperText Markup Language">HTML</abbr>, <cite>cite</cite>, <q>q</q>, <code>code</code>, <kbd>kbd</kbd>, <samp>samp</samp>, <var>var</var>, <time datetime="2026-03-25">25 March 2026</time>, <del>del</del>, and <ins>ins</ins>.</p>
+<blockquote cite="https://developer.mozilla.org/">This is a block quotation.</blockquote>
 <pre>pre
 line 1
 line 2
 line 3</pre>
 <hr />
-<address>address</address></textarea>
+<address>Contact: <a href="mailto:teacher@example.com">teacher@example.com</a></address></textarea>
           <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
         </div>
       </article>
@@ -248,14 +290,14 @@ line 3</pre>
                 <col class="col-c" />
               </colgroup>
               <thead>
-                <tr><th>th</th><th>th</th><th>th</th></tr>
+                <tr><th scope="col">Name</th><th scope="col">Subject</th><th scope="col">Mark</th></tr>
               </thead>
               <tbody>
-                <tr><td>td</td><td>td</td><td>td</td></tr>
-                <tr><td>td</td><td>td</td><td>td</td></tr>
+                <tr><td>Alex</td><td>HTML</td><td>85</td></tr>
+                <tr><td>Sam</td><td>CSS</td><td>90</td></tr>
               </tbody>
               <tfoot>
-                <tr><td colspan="3">tfoot</td></tr>
+                <tr><td colspan="3">Two student records</td></tr>
               </tfoot>
             </table>
           </div>
@@ -269,14 +311,14 @@ line 3</pre>
     <col class="col-c" />
   </colgroup>
   <thead>
-    <tr><th>th</th><th>th</th><th>th</th></tr>
+    <tr><th scope="col">Name</th><th scope="col">Subject</th><th scope="col">Mark</th></tr>
   </thead>
   <tbody>
     <tr><td>td</td><td>td</td><td>td</td></tr>
     <tr><td>td</td><td>td</td><td>td</td></tr>
   </tbody>
   <tfoot>
-    <tr><td colspan="3">tfoot</td></tr>
+    <tr><td colspan="3">Two student records</td></tr>
   </tfoot>
 </table></textarea>
             <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
@@ -291,147 +333,297 @@ line 3</pre>
         <h2>input, label, select, textarea, datalist, output, fieldset</h2>
       </div>
 
-      <article class="demo-card card">
-        <div class="demo-head">
-          <div>
-            <p class="mini-label">Form elements</p>
-            <h3>Common form controls</h3>
+      <div class="demo-grid two-up">
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Basic inputs</p>
+              <h3>Labels and common input types</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
           </div>
-          <button type="button" class="code-toggle" aria-expanded="false">Code</button>
-        </div>
-        <div class="preview demo-scope" data-preview>
-          <form class="demo-form" oninput="result.value=Number(range.value)+Number(number.value)">
-            <fieldset>
-              <legend>fieldset + legend</legend>
 
-              <label>text input
-                <input type="text" placeholder="input type=text" />
-              </label>
+          <div class="preview demo-scope" data-preview>
+            <form class="demo-form" onsubmit="event.preventDefault()">
+              <fieldset>
+                <legend>Personal details</legend>
 
-              <label>email input
-                <input type="email" placeholder="name@example.com" />
-              </label>
+                <label for="demo-name">Name</label>
+                <input id="demo-name" name="name" type="text" placeholder="Alex Chen" autocomplete="name" required />
 
-              <label>password input
-                <input type="password" placeholder="password" />
-              </label>
+                <label for="demo-email">Email</label>
+                <input id="demo-email" name="email" type="email" placeholder="name@example.com" autocomplete="email" />
 
-              <label>date input
-                <input type="date" />
-              </label>
+                <label for="demo-password">Password</label>
+                <input id="demo-password" name="password" type="password" minlength="8" placeholder="At least 8 characters" />
 
-              <label>select
-                <select>
-                  <option>option 1</option>
-                  <option>option 2</option>
+                <label for="demo-phone">Phone</label>
+                <input id="demo-phone" name="phone" type="tel" placeholder="0400 000 000" autocomplete="tel" />
+
+                <label for="demo-url">Website</label>
+                <input id="demo-url" name="website" type="url" placeholder="https://example.com" />
+
+                <label for="demo-search">Search</label>
+                <input id="demo-search" name="search" type="search" placeholder="Search..." />
+
+                <label for="demo-date">Date</label>
+                <input id="demo-date" name="date" type="date" />
+
+                <label for="demo-time">Time</label>
+                <input id="demo-time" name="time" type="time" />
+
+                <label for="demo-colour">Colour</label>
+                <input id="demo-colour" name="colour" type="color" value="#2f63ff" />
+
+                <label for="demo-file">File</label>
+                <input id="demo-file" name="file" type="file" />
+              </fieldset>
+            </form>
+          </div>
+
+          <div class="editor-panel" hidden>
+            <label for="forms-basic-editor">HTML code</label>
+            <textarea id="forms-basic-editor" class="code-editor" spellcheck="false"><form class="demo-form" onsubmit="event.preventDefault()">
+  <fieldset>
+    <legend>Personal details</legend>
+
+    <label for="demo-name">Name</label>
+    <input id="demo-name" name="name" type="text" placeholder="Alex Chen" autocomplete="name" required />
+
+    <label for="demo-email">Email</label>
+    <input id="demo-email" name="email" type="email" placeholder="name@example.com" autocomplete="email" />
+
+    <label for="demo-password">Password</label>
+    <input id="demo-password" name="password" type="password" minlength="8" placeholder="At least 8 characters" />
+
+    <label for="demo-phone">Phone</label>
+    <input id="demo-phone" name="phone" type="tel" placeholder="0400 000 000" autocomplete="tel" />
+
+    <label for="demo-url">Website</label>
+    <input id="demo-url" name="website" type="url" placeholder="https://example.com" />
+
+    <label for="demo-search">Search</label>
+    <input id="demo-search" name="search" type="search" placeholder="Search..." />
+
+    <label for="demo-date">Date</label>
+    <input id="demo-date" name="date" type="date" />
+
+    <label for="demo-time">Time</label>
+    <input id="demo-time" name="time" type="time" />
+
+    <label for="demo-colour">Colour</label>
+    <input id="demo-colour" name="colour" type="color" value="#2f63ff" />
+
+    <label for="demo-file">File</label>
+    <input id="demo-file" name="file" type="file" />
+  </fieldset>
+</form></textarea>
+            <div class="editor-actions">
+              <button type="button" class="update-btn">Update</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Choice controls</p>
+              <h3>Select, checkbox and radio</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+
+          <div class="preview demo-scope" data-preview>
+            <form class="demo-form" onsubmit="event.preventDefault()">
+              <fieldset>
+                <legend>Course preferences</legend>
+
+                <label for="demo-subject">Subject</label>
+                <select id="demo-subject" name="subject">
+                  <option value="">Choose a subject</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="javascript">JavaScript</option>
                 </select>
-              </label>
 
-              <label>textarea
-                <textarea rows="4">textarea</textarea>
-              </label>
+                <p>Learning topics</p>
+                <label class="inline-control">
+                  <input type="checkbox" name="topics" value="forms" checked />
+                  <span>Forms</span>
+                </label>
+                <label class="inline-control">
+                  <input type="checkbox" name="topics" value="tables" />
+                  <span>Tables</span>
+                </label>
 
-              <label>data list
-                <input list="browser-list" placeholder="choose from datalist" />
-                <datalist id="browser-list">
+                <p>Study mode</p>
+                <label class="inline-control">
+                  <input type="radio" name="study-mode" value="online" checked />
+                  <span>Online</span>
+                </label>
+                <label class="inline-control">
+                  <input type="radio" name="study-mode" value="campus" />
+                  <span>On campus</span>
+                </label>
+              </fieldset>
+            </form>
+          </div>
+
+          <div class="editor-panel" hidden>
+            <label for="forms-choice-editor">HTML code</label>
+            <textarea id="forms-choice-editor" class="code-editor" spellcheck="false"><form class="demo-form" onsubmit="event.preventDefault()">
+  <fieldset>
+    <legend>Course preferences</legend>
+
+    <label for="demo-subject">Subject</label>
+    <select id="demo-subject" name="subject">
+      <option value="">Choose a subject</option>
+      <option value="html">HTML</option>
+      <option value="css">CSS</option>
+      <option value="javascript">JavaScript</option>
+    </select>
+
+    <p>Learning topics</p>
+    <label class="inline-control">
+      <input type="checkbox" name="topics" value="forms" checked />
+      <span>Forms</span>
+    </label>
+    <label class="inline-control">
+      <input type="checkbox" name="topics" value="tables" />
+      <span>Tables</span>
+    </label>
+
+    <p>Study mode</p>
+    <label class="inline-control">
+      <input type="radio" name="study-mode" value="online" checked />
+      <span>Online</span>
+    </label>
+    <label class="inline-control">
+      <input type="radio" name="study-mode" value="campus" />
+      <span>On campus</span>
+    </label>
+  </fieldset>
+</form></textarea>
+            <div class="editor-actions">
+              <button type="button" class="update-btn">Update</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="demo-grid two-up">
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Long text and suggestions</p>
+              <h3>Textarea and datalist</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
+
+          <div class="preview demo-scope" data-preview>
+            <form class="demo-form" onsubmit="event.preventDefault()">
+              <fieldset>
+                <legend>Feedback</legend>
+
+                <label for="demo-message">Message</label>
+                <textarea id="demo-message" name="message" rows="5" maxlength="300" placeholder="Enter your feedback"></textarea>
+
+                <label for="demo-browser">Preferred browser</label>
+                <input id="demo-browser" name="browser" list="browser-options" placeholder="Type or choose a browser" />
+                <datalist id="browser-options">
                   <option value="Chrome"></option>
                   <option value="Edge"></option>
                   <option value="Firefox"></option>
+                  <option value="Safari"></option>
                 </datalist>
-              </label>
+              </fieldset>
+            </form>
+          </div>
 
-              <div class="inline-row">
-                <label class="inline-control"><input type="checkbox" checked /> <span>checkbox</span></label>
-                <label class="inline-control"><input type="radio" name="demo-radio" checked /> <span>radio</span></label>
-              </div>
-
-              <label>range input
-                <input name="range" type="range" value="30" />
-              </label>
-
-              <label>number input
-                <input name="number" type="number" value="12" />
-              </label>
-
-              <label>output
-                <output name="result">42</output>
-              </label>
-
-              <div class="button-row">
-                <button type="submit">submit</button>
-                <button type="reset">reset</button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-        <div class="editor-panel" hidden>
-          <label>HTML code</label>
-          <textarea class="code-editor" spellcheck="false"><form class="demo-form" oninput="result.value=Number(range.value)+Number(number.value)">
+          <div class="editor-panel" hidden>
+            <label for="forms-text-editor">HTML code</label>
+            <textarea id="forms-text-editor" class="code-editor" spellcheck="false"><form class="demo-form" onsubmit="event.preventDefault()">
   <fieldset>
-    <legend>fieldset + legend</legend>
+    <legend>Feedback</legend>
 
-    <label>text input
-      <input type="text" placeholder="input type=text" />
-    </label>
+    <label for="demo-message">Message</label>
+    &lt;textarea id="demo-message" name="message" rows="5" maxlength="300" placeholder="Enter your feedback"&gt;</textarea>
 
-    <label>email input
-      <input type="email" placeholder="name@example.com" />
-    </label>
+    <label for="demo-browser">Preferred browser</label>
+    <input id="demo-browser" name="browser" list="browser-options" placeholder="Type or choose a browser" />
+    <datalist id="browser-options">
+      <option value="Chrome"></option>
+      <option value="Edge"></option>
+      <option value="Firefox"></option>
+      <option value="Safari"></option>
+    </datalist>
+  </fieldset>
+</form></textarea>
+            <div class="editor-actions">
+              <button type="button" class="update-btn">Update</button>
+            </div>
+          </div>
+        </article>
 
-    <label>password input
-      <input type="password" placeholder="password" />
-    </label>
+        <article class="demo-card card">
+          <div class="demo-head">
+            <div>
+              <p class="mini-label">Calculated output</p>
+              <h3>Range, number and output</h3>
+            </div>
+            <button type="button" class="code-toggle" aria-expanded="false">Code</button>
+          </div>
 
-    <label>date input
-      <input type="date" />
-    </label>
+          <div class="preview demo-scope" data-preview>
+            <form class="demo-form" oninput="result.value=Number(range.value)+Number(number.value)" onsubmit="event.preventDefault()">
+              <fieldset>
+                <legend>Simple calculator</legend>
 
-    <label>select
-      <select>
-        <option>option 1</option>
-        <option>option 2</option>
-      </select>
-    </label>
+                <label for="range-input">Range value</label>
+                <input id="range-input" name="range" type="range" min="0" max="100" value="30" />
 
-    <label>textarea
-      <textarea rows="4">textarea</textarea>
-    </label>
+                <label for="number-input">Number value</label>
+                <input id="number-input" name="number" type="number" min="0" max="100" value="12" />
 
-    <label>data list
-      <input list="browser-list" placeholder="choose from datalist" />
-      <datalist id="browser-list">
-        <option value="Chrome"></option>
-        <option value="Edge"></option>
-        <option value="Firefox"></option>
-      </datalist>
-    </label>
+                <label for="result-output">Total</label>
+                <output id="result-output" name="result" for="range-input number-input">42</output>
 
-    <div class="inline-row">
-      <label class="inline-control"><input type="checkbox" checked /> <span>checkbox</span></label>
-      <label class="inline-control"><input type="radio" name="demo-radio" checked /> <span>radio</span></label>
-    </div>
+                <div class="button-row">
+                  <button type="submit">Submit</button>
+                  <button type="reset">Reset</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
 
-    <label>range input
-      <input name="range" type="range" value="30" />
-    </label>
+          <div class="editor-panel" hidden>
+            <label for="forms-output-editor">HTML code</label>
+            <textarea id="forms-output-editor" class="code-editor" spellcheck="false"><form class="demo-form" oninput="result.value=Number(range.value)+Number(number.value)" onsubmit="event.preventDefault()">
+  <fieldset>
+    <legend>Simple calculator</legend>
 
-    <label>number input
-      <input name="number" type="number" value="12" />
-    </label>
+    <label for="range-input">Range value</label>
+    <input id="range-input" name="range" type="range" min="0" max="100" value="30" />
 
-    <label>output
-      <output name="result">42</output>
-    </label>
+    <label for="number-input">Number value</label>
+    <input id="number-input" name="number" type="number" min="0" max="100" value="12" />
+
+    <label for="result-output">Total</label>
+    <output id="result-output" name="result" for="range-input number-input">42</output>
 
     <div class="button-row">
-      <button type="submit">submit</button>
-      <button type="reset">reset</button>
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
     </div>
   </fieldset>
 </form></textarea>
-          <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
-        </div>
-      </article>
+            <div class="editor-actions">
+              <button type="button" class="update-btn">Update</button>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="layout" class="section-block">
@@ -494,12 +686,12 @@ line 3</pre>
           </div>
           <div class="preview demo-scope" data-preview>
             <iframe class="frame-demo" title="iframe srcdoc demo" srcdoc="<body style='margin:0;display:grid;place-items:center;height:100vh;font-family:Arial,sans-serif;background:#eef4ff;color:#17336b;'><h2>iframe srcdoc</h2></body>"></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/R-1c2xGajXc?si=kKkxpCQykit8Hj7T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>         <p class="note">If YouTube is blocked by browser, network, or policy, the embed may not play when opened locally.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/R-1c2xGajXc?si=kKkxpCQykit8Hj7T" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>         <p class="note">If YouTube is blocked by browser, network, or policy, the embed may not play when opened locally.</p>
           </div>
           <div class="editor-panel" hidden>
             <label>HTML code</label>
             <textarea class="code-editor" spellcheck="false"><iframe class="frame-demo" title="iframe srcdoc demo" srcdoc="<body style='margin:0;display:grid;place-items:center;height:100vh;font-family:Arial,sans-serif;background:#eef4ff;color:#17336b;'><h2>iframe srcdoc</h2></body>"></iframe>
-           <iframe width="560" height="315" src="https://www.youtube.com/embed/R-1c2xGajXc?si=kKkxpCQykit8Hj7T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p class="note">If YouTube is blocked by browser, network, or policy, the embed may not play when opened locally.</p></textarea>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/R-1c2xGajXc?si=kKkxpCQykit8Hj7T" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p class="note">If YouTube is blocked by browser, network, or policy, the embed may not play when opened locally.</p></textarea>
             <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
           </div>
         </article>
@@ -513,7 +705,8 @@ line 3</pre>
             <button type="button" class="code-toggle" aria-expanded="false">Code</button>
           </div>
           <div class="preview demo-scope" data-preview>
-            <svg viewBox="0 0 320 120" aria-label="svg demo">
+            <svg viewBox="0 0 320 120" role="img" aria-labelledby="svg-demo-title">
+              <title id="svg-demo-title">SVG shapes demonstration</title>
               <rect x="10" y="10" width="300" height="100" rx="24"></rect>
               <circle cx="70" cy="60" r="24"></circle>
               <text x="120" y="68">svg</text>
@@ -522,7 +715,8 @@ line 3</pre>
           </div>
           <div class="editor-panel" hidden>
             <label>HTML code</label>
-            <textarea class="code-editor" spellcheck="false"><svg viewBox="0 0 320 120" aria-label="svg demo">
+            <textarea class="code-editor" spellcheck="false"><svg viewBox="0 0 320 120" role="img" aria-labelledby="svg-demo-title">
+              <title id="svg-demo-title">SVG shapes demonstration</title>
   <rect x="10" y="10" width="300" height="100" rx="24"></rect>
   <circle cx="70" cy="60" r="24"></circle>
   <text x="120" y="68">svg</text>
