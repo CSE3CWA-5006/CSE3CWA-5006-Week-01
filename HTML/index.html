@@ -47,6 +47,55 @@
       border: 1px solid currentColor;
       border-radius: 0.4rem;
     }
+
+    .drawing-demo-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .drawing-demo-grid svg,
+    .drawing-demo-grid canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid #c9d7ee;
+      border-radius: 0.75rem;
+      background: #ffffff;
+    }
+
+    .special-tag-demo {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .special-tag-demo object,
+    .special-tag-demo embed {
+      display: block;
+      border: 1px solid #c9d7ee;
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+
+    #templateTarget {
+      min-height: 5rem;
+      padding: 1rem;
+      border: 2px dashed #7aa2e8;
+      border-radius: 0.75rem;
+      background: #f7faff;
+    }
+
+    .template-card {
+      padding: 1rem;
+      border-radius: 0.75rem;
+      background: #e8f1ff;
+    }
+
+    .noscript-message {
+      padding: 1rem;
+      border-radius: 0.75rem;
+      background: #fee2e2;
+    }
   </style>
 </head>
 <body>
@@ -705,23 +754,55 @@ line 3</pre>
             <button type="button" class="code-toggle" aria-expanded="false">Code</button>
           </div>
           <div class="preview demo-scope" data-preview>
-            <svg viewBox="0 0 320 120" role="img" aria-labelledby="svg-demo-title">
-              <title id="svg-demo-title">SVG shapes demonstration</title>
-              <rect x="10" y="10" width="300" height="100" rx="24"></rect>
-              <circle cx="70" cy="60" r="24"></circle>
-              <text x="120" y="68">svg</text>
-            </svg>
-            <canvas id="demoCanvas" width="320" height="120">canvas</canvas>
+            <div class="drawing-demo-grid">
+              <section>
+                <h4>SVG: browser-readable shapes</h4>
+                <svg viewBox="0 0 360 180" role="img" aria-labelledby="svg-demo-title">
+                  <title id="svg-demo-title">SVG house, sun, tree and labels</title>
+                  <rect x="0" y="0" width="360" height="180" fill="#eaf4ff"></rect>
+                  <circle cx="305" cy="38" r="22" fill="#ffd54f"></circle>
+                  <rect x="48" y="88" width="115" height="72" fill="#ffffff" stroke="#17336b" stroke-width="3"></rect>
+                  <polygon points="38,90 105,38 173,90" fill="#ff8a65" stroke="#17336b" stroke-width="3"></polygon>
+                  <rect x="92" y="118" width="28" height="42" fill="#90caf9" stroke="#17336b" stroke-width="2"></rect>
+                  <rect x="220" y="92" width="18" height="68" fill="#8d6e63"></rect>
+                  <circle cx="229" cy="75" r="34" fill="#66bb6a"></circle>
+                  <text x="16" y="22" font-size="14" fill="#17336b">SVG elements remain selectable in the DOM</text>
+                </svg>
+                <p class="note">SVG is built from shape elements such as <code>&lt;rect&gt;</code>, <code>&lt;circle&gt;</code> and <code>&lt;polygon&gt;</code>.</p>
+              </section>
+
+              <section>
+                <h4>Canvas: pixels drawn by JavaScript</h4>
+                <canvas id="demoCanvas" width="360" height="180">Your browser does not support canvas.</canvas>
+                <p class="note">Canvas starts empty. JavaScript paints pixels onto it.</p>
+              </section>
+            </div>
           </div>
           <div class="editor-panel" hidden>
             <label>HTML code</label>
-            <textarea class="code-editor" spellcheck="false"><svg viewBox="0 0 320 120" role="img" aria-labelledby="svg-demo-title">
-              <title id="svg-demo-title">SVG shapes demonstration</title>
-  <rect x="10" y="10" width="300" height="100" rx="24"></rect>
-  <circle cx="70" cy="60" r="24"></circle>
-  <text x="120" y="68">svg</text>
-</svg>
-<canvas id="demoCanvas" width="320" height="120">canvas</canvas></textarea>
+            <textarea class="code-editor" spellcheck="false"><div class="drawing-demo-grid">
+  <section>
+    <h4>SVG: browser-readable shapes</h4>
+    <svg viewBox="0 0 360 180" role="img" aria-labelledby="svg-demo-title">
+      <title id="svg-demo-title">SVG house, sun, tree and labels</title>
+      <rect x="0" y="0" width="360" height="180" fill="#eaf4ff"></rect>
+      <circle cx="305" cy="38" r="22" fill="#ffd54f"></circle>
+      <rect x="48" y="88" width="115" height="72" fill="#ffffff" stroke="#17336b" stroke-width="3"></rect>
+      <polygon points="38,90 105,38 173,90" fill="#ff8a65" stroke="#17336b" stroke-width="3"></polygon>
+      <rect x="92" y="118" width="28" height="42" fill="#90caf9" stroke="#17336b" stroke-width="2"></rect>
+      <rect x="220" y="92" width="18" height="68" fill="#8d6e63"></rect>
+      <circle cx="229" cy="75" r="34" fill="#66bb6a"></circle>
+      <text x="16" y="22" font-size="14" fill="#17336b">SVG elements remain selectable in the DOM</text>
+    </svg>
+    <p class="note">SVG is built from shape elements.</p>
+  </section>
+
+  <section>
+    <h4>Canvas: pixels drawn by JavaScript</h4>
+    <canvas id="demoCanvas" width="360" height="180">Your browser does not support canvas.</canvas>
+    <p class="note">Canvas is drawn by JavaScript.</p>
+  </section>
+</div></textarea>
             <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
           </div>
         </article>
@@ -782,19 +863,73 @@ line 3</pre>
             <button type="button" class="code-toggle" aria-expanded="false">Code</button>
           </div>
           <div class="preview demo-scope" data-preview>
-            <object data="data:text/html,<h3 style='font-family:Arial,sans-serif;text-align:center;'>object</h3>" type="text/html" width="100%" height="90">object fallback</object>
-            <embed src="data:text/html,%3Ch3%20style%3D%27font-family%3AArial%2Csans-serif%3Btext-align%3Acenter%3B%27%3Eembed%3C%2Fh3%3E" type="text/html" width="100%" height="90" />
-            <template id="templateDemo"><p>template content</p></template>
-            <div id="templateTarget">template target</div>
-            <noscript>noscript</noscript>
+            <section class="special-tag-demo">
+              <h4>object</h4>
+              <object
+                data="data:text/html,%3Cbody%20style%3D%27margin%3A0%3Bdisplay%3Agrid%3Bplace-items%3Acenter%3Bheight%3A100vh%3Bfont-family%3AArial%2Csans-serif%3Bbackground%3A%23fff3cd%3Bcolor%3A%237a4f00%3B%27%3E%3Cdiv%20style%3D%27text-align%3Acenter%3B%27%3E%3Ch3%3ELoaded%20by%20object%3C%2Fh3%3E%3Cp%3EEmbedded%20as%20a%20separate%20HTML%20document.%3C%2Fp%3E%3C%2Fdiv%3E%3C%2Fbody%3E"
+                type="text/html"
+                width="100%"
+                height="130">
+                <p>Object content could not be loaded.</p>
+              </object>
+
+              <h4>embed</h4>
+              <embed
+                src="data:text/html,%3Cbody%20style%3D%27margin%3A0%3Bdisplay%3Agrid%3Bplace-items%3Acenter%3Bheight%3A100vh%3Bfont-family%3AArial%2Csans-serif%3Bbackground%3A%23dbeafe%3Bcolor%3A%2317336b%3B%27%3E%3Cdiv%20style%3D%27text-align%3Acenter%3B%27%3E%3Ch3%3ELoaded%20by%20embed%3C%2Fh3%3E%3Cp%3EEmbedded%20directly%20from%20the%20src%20attribute.%3C%2Fp%3E%3C%2Fdiv%3E%3C%2Fbody%3E"
+                type="text/html"
+                width="100%"
+                height="130" />
+
+              <h4>template</h4>
+              <template id="templateDemo">
+                <article class="template-card">
+                  <h3>Copied from template</h3>
+                  <p>This HTML was hidden first, then copied into the page by JavaScript.</p>
+                </article>
+              </template>
+
+              <div id="templateTarget">The template has not been copied yet.</div>
+              <button type="button" class="template-button">Show template content</button>
+
+              <noscript>
+                <p class="noscript-message">JavaScript is disabled, so the template demonstration cannot run.</p>
+              </noscript>
+            </section>
           </div>
           <div class="editor-panel" hidden>
             <label>HTML code</label>
-            <textarea class="code-editor" spellcheck="false"><object data="data:text/html,<h3 style='font-family:Arial,sans-serif;text-align:center;'>object</h3>" type="text/html" width="100%" height="90">object fallback</object>
-<embed src="data:text/html,%3Ch3%20style%3D%27font-family%3AArial%2Csans-serif%3Btext-align%3Acenter%3B%27%3Eembed%3C%2Fh3%3E" type="text/html" width="100%" height="90" />
-<template id="templateDemo"><p>template content</p></template>
-<div id="templateTarget">template target</div>
-<noscript>noscript</noscript></textarea>
+            <textarea class="code-editor" spellcheck="false"><section class="special-tag-demo">
+  <h4>object</h4>
+  <object
+    data="data:text/html,%3Cbody%20style%3D%27margin%3A0%3Bdisplay%3Agrid%3Bplace-items%3Acenter%3Bheight%3A100vh%3Bfont-family%3AArial%2Csans-serif%3Bbackground%3A%23fff3cd%3Bcolor%3A%237a4f00%3B%27%3E%3Cdiv%20style%3D%27text-align%3Acenter%3B%27%3E%3Ch3%3ELoaded%20by%20object%3C%2Fh3%3E%3Cp%3EEmbedded%20as%20a%20separate%20HTML%20document.%3C%2Fp%3E%3C%2Fdiv%3E%3C%2Fbody%3E"
+    type="text/html"
+    width="100%"
+    height="130">
+    <p>Object content could not be loaded.</p>
+  </object>
+
+  <h4>embed</h4>
+  <embed
+    src="data:text/html,%3Cbody%20style%3D%27margin%3A0%3Bdisplay%3Agrid%3Bplace-items%3Acenter%3Bheight%3A100vh%3Bfont-family%3AArial%2Csans-serif%3Bbackground%3A%23dbeafe%3Bcolor%3A%2317336b%3B%27%3E%3Cdiv%20style%3D%27text-align%3Acenter%3B%27%3E%3Ch3%3ELoaded%20by%20embed%3C%2Fh3%3E%3Cp%3EEmbedded%20directly%20from%20the%20src%20attribute.%3C%2Fp%3E%3C%2Fdiv%3E%3C%2Fbody%3E"
+    type="text/html"
+    width="100%"
+    height="130" />
+
+  <h4>template</h4>
+  <template id="templateDemo">
+    <article class="template-card">
+      <h3>Copied from template</h3>
+      <p>This HTML was hidden first, then copied into the page by JavaScript.</p>
+    </article>
+  </template>
+
+  <div id="templateTarget">The template has not been copied yet.</div>
+  <button type="button" class="template-button">Show template content</button>
+
+  <noscript>
+    <p class="noscript-message">JavaScript is disabled, so the template demonstration cannot run.</p>
+  </noscript>
+</section></textarea>
             <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
           </div>
         </article>
@@ -810,26 +945,64 @@ line 3</pre>
     function runCanvas(scope) {
       const canvas = scope.querySelector('canvas');
       if (!canvas || !canvas.getContext) return;
+
       const ctx = canvas.getContext('2d');
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#dfe8ff';
+
+      const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      sky.addColorStop(0, '#dbeafe');
+      sky.addColorStop(1, '#f8fbff');
+      ctx.fillStyle = sky;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#2f63ff';
-      ctx.fillRect(18, 28, 74, 46);
+
+      ctx.fillStyle = '#ffd54f';
       ctx.beginPath();
-      ctx.arc(150, 60, 20, 0, Math.PI * 2);
-      ctx.fillStyle = '#17336b';
+      ctx.arc(305, 38, 22, 0, Math.PI * 2);
       ctx.fill();
-      ctx.font = '16px Arial';
-      ctx.fillText('canvas', 210, 64);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(48, 88, 115, 72);
+      ctx.strokeStyle = '#17336b';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(48, 88, 115, 72);
+
+      ctx.fillStyle = '#ff8a65';
+      ctx.beginPath();
+      ctx.moveTo(38, 90);
+      ctx.lineTo(105, 38);
+      ctx.lineTo(173, 90);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#90caf9';
+      ctx.fillRect(92, 118, 28, 42);
+      ctx.strokeRect(92, 118, 28, 42);
+
+      ctx.fillStyle = '#8d6e63';
+      ctx.fillRect(220, 92, 18, 68);
+
+      ctx.fillStyle = '#66bb6a';
+      ctx.beginPath();
+      ctx.arc(229, 75, 34, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#17336b';
+      ctx.font = '14px Arial';
+      ctx.fillText('Canvas pixels were drawn by JavaScript', 16, 22);
     }
 
     function runTemplate(scope) {
       const template = scope.querySelector('template');
       const target = scope.querySelector('#templateTarget');
-      if (!template || !target) return;
-      target.innerHTML = 'template target';
-      target.appendChild(template.content.cloneNode(true));
+      const button = scope.querySelector('.template-button');
+      if (!template || !target || !button) return;
+
+      button.addEventListener('click', () => {
+        target.innerHTML = '';
+        target.appendChild(template.content.cloneNode(true));
+        button.textContent = 'Template content copied';
+      }, { once: true });
     }
 
     function runEnhancements(scope) {
