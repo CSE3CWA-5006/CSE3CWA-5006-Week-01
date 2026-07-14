@@ -96,6 +96,12 @@
       border-radius: 0.75rem;
       background: #fee2e2;
     }
+
+    .drawing-code-editor {
+      min-height: 72rem !important;
+      max-height: none !important;
+      overflow: visible;
+    }
   </style>
 </head>
 <body>
@@ -779,8 +785,8 @@ line 3</pre>
             </div>
           </div>
           <div class="editor-panel" hidden>
-            <label>HTML code</label>
-            <textarea class="code-editor" spellcheck="false"><div class="drawing-demo-grid">
+            <label>HTML + JavaScript code</label>
+            <textarea class="code-editor drawing-code-editor" spellcheck="false"><div class="drawing-demo-grid">
   <section>
     <h4>SVG: browser-readable shapes</h4>
     <svg viewBox="0 0 360 180" role="img" aria-labelledby="svg-demo-title">
