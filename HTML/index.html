@@ -802,7 +802,56 @@ line 3</pre>
     <canvas id="demoCanvas" width="360" height="180">Your browser does not support canvas.</canvas>
     <p class="note">Canvas is drawn by JavaScript.</p>
   </section>
-</div></textarea>
+</div>
+
+
+&lt;script&gt;
+  const canvas = document.getElementById("demoCanvas");
+  const ctx = canvas.getContext("2d");
+
+  const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  sky.addColorStop(0, "#dbeafe");
+  sky.addColorStop(1, "#f8fbff");
+  ctx.fillStyle = sky;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#ffd54f";
+  ctx.beginPath();
+  ctx.arc(305, 38, 22, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(48, 88, 115, 72);
+  ctx.strokeStyle = "#17336b";
+  ctx.lineWidth = 3;
+  ctx.strokeRect(48, 88, 115, 72);
+
+  ctx.fillStyle = "#ff8a65";
+  ctx.beginPath();
+  ctx.moveTo(38, 90);
+  ctx.lineTo(105, 38);
+  ctx.lineTo(173, 90);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = "#90caf9";
+  ctx.fillRect(92, 118, 28, 42);
+  ctx.strokeRect(92, 118, 28, 42);
+
+  ctx.fillStyle = "#8d6e63";
+  ctx.fillRect(220, 92, 18, 68);
+
+  ctx.fillStyle = "#66bb6a";
+  ctx.beginPath();
+  ctx.arc(229, 75, 34, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = "#17336b";
+  ctx.font = "14px Arial";
+  ctx.fillText("Canvas pixels were drawn by JavaScript", 16, 22);
+&lt;/script&gt;
+</textarea>
             <div class="editor-actions"><button type="button" class="update-btn">Update</button></div>
           </div>
         </article>
